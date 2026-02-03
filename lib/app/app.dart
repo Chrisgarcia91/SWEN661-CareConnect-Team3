@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:care_connect_team3/app/theme/theme.dart';
+import 'theme/theme.dart';
+import 'features/auth/login_screen.dart';
+import 'features/home/app_shell.dart';
+import 'features/medications/medication_list_screen.dart';
+import 'features/medications/add_medication_screen.dart';
+import 'features/medications/medication_detail_screen.dart';
+import 'features/medications/refill_request_flow.dart';
+import 'routing/routes.dart';
 
 void main() {
   runApp(const CareConnectApp());
@@ -14,12 +21,20 @@ class CareConnectApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      title: 'Care Connect',
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),
       themeMode: ThemeMode.system,
       
-      home: const ThemeTestScreen(),   
+      initialRoute: AppRoutes.login,
+
+      routes: {
+        AppRoutes.login: (_) => const LoginScreen(),
+        AppRoutes.root: (_) => const AppShell(),
+        AppRoutes.medications: (_) => const MedicationListScreen(),
+        AppRoutes.addMedication: (_) => const AddMedicationScreen(),
+        AppRoutes.medicationDetail: (_) => const MedicationDetailScreen(), // Placeholder
+        AppRoutes.refillRequest: (_) => const RefillRequestFlow(),
+      }, 
     );
   }
 }
