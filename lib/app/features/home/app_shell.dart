@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../home/today_screen.dart';
 import '../calendar/calendar_screen.dart';
 import '../communications/communications_screen.dart';
@@ -14,11 +15,12 @@ class AppShell extends StatefulWidget {
 class _AppShellState extends State<AppShell> {
   int _index = 0;
 
-  final _tabs = const [
-    TodayScreen(),
-    CalendarScreen(),
-    CommunicationsScreen(),
-    SettingsScreen(),
+  // NOTE: TodayScreen requires state/actions, so we use TodayScreen.demo()
+  late final List<Widget> _tabs = <Widget>[
+    TodayScreen.demo(),
+    const CalendarScreen(),
+    const CommunicationsScreen(),
+    const SettingsScreen(),
   ];
 
   @override
@@ -40,5 +42,5 @@ class _AppShellState extends State<AppShell> {
         ],
       ),
     );
-}
+  }
 }

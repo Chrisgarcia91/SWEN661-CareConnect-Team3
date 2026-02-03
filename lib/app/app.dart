@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'theme/theme.dart';
 import 'features/auth/login_screen.dart';
 import 'features/home/app_shell.dart';
+import 'features/home/today_screen.dart';
 import 'features/medications/medication_list_screen.dart';
 import 'features/medications/add_medication_screen.dart';
 import 'features/medications/medication_detail_screen.dart';
@@ -30,6 +31,7 @@ class CareConnectApp extends StatelessWidget {
       routes: {
         AppRoutes.login: (_) => const LoginScreen(),
         AppRoutes.root: (_) => const AppShell(),
+        AppRoutes.today: (_) => TodayScreen(state: TodayState(medications: const [], appointments: const [], leftHandMode: false, favorites: const [],), actions: TodayActions(takeMedication: (_) {}, skipMedication: (_) {}, undoLastAction: (_) {},),),
         AppRoutes.medications: (_) => const MedicationListScreen(),
         AppRoutes.addMedication: (_) => const AddMedicationScreen(),
         AppRoutes.medicationDetail: (_) => const MedicationDetailScreen(), // Placeholder
